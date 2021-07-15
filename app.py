@@ -39,14 +39,7 @@ def index():
 
 #     file_path = easygui.fileopenbox()
 #     neo_4j_demo.backend(file_path)
-
 #     return 0
-
-# @app.route('/')
-# @login_required
-# def home ():
-#     return render_template("index.html")
-#     #return "Hello World"
 
 # @app.route('/welcome')
 # def welcome():
@@ -102,13 +95,6 @@ def upload_file():
 @app.route('/visualizer')
 def visualizer():
     return render_template('visualizer.html')
-
-# @app.route('/logout')
-# @login_required
-# def logout():
-#     session.pop('logged_in', None)
-#     flash('You were just logged out')
-#     return redirect(url_for('welcome'))
 
 if __name__=="__main__":
     app.run(debug=True)

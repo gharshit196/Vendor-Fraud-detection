@@ -38,18 +38,7 @@ with open('Fraud.csv', mode='r') as file:
             customer_no = line[keys[5]]
             customer_id = line[keys[6]]
             cutomer_tag = (line[keys[7]])
-
-
-            # query= '''
-            #     MERGE ("+var1+":"+"id"+ "{i:\""+ +"\"}) 
-            #     MERGE ("+var2+":"+"id"+ "{i:\""+customer_id+"\"})
-            #     MERGE ("+var3+":"+"id"+ "{i:\""+purchaser_id+"\"})
-            #     MERGE ("+var1+")-[a:status{task:\""+fraud+"\"}]-> ("+var2+")- [b:status2{p:\""+fraud2+"\"}]-> ("+var3+")
-
-            # '''
-
-            #MERGE("+var1+")-[article:"+status+"{type:\""+call_type+"\",start_date:apoc.temporal.format(datetime(\""+start_time+"\"), \"dd MM yyyy\"),start_time: apoc.temporal.format(datetime(\""+start_time+"\"), \"HH:mm:ss\"),end_date:apoc.temporal.format(datetime(\""+end_time+"\"), \"dd MM yyyy\"), end_time:apoc.temporal.format(datetime(\""+end_time+"\"), \"HH:mm:ss\"),duration:  duration.inSeconds(datetime('"+ start_time +"') ,datetime('"+ end_time +"')).seconds}]->("+var2+")")
-           
+              
             # query= "
             #     MERGE ("var1:supplier_no) 
             #     MERGE (var2:customer_no)
@@ -57,5 +46,5 @@ with open('Fraud.csv', mode='r') as file:
             # "
             #session.run (query)
             session.run("MERGE ("+var1+":"+"deal_number"+ "{ number: \""+supplier_no+"\"})MERGE("+var2+":"+"deal_number"+ "{ number:\""+customer_no+"\"})MERGE("+var1+")-[article:"+relation_type+"]->("+var2+")")
-            #{type:\""+call_type+"\",start_date:apoc.temporal.format(datetime(\""+start_time+"\"), \"dd MM yyyy\"),start_time: apoc.temporal.format(datetime(\""+start_time+"\"), \"HH:mm:ss\"),end_date:apoc.temporal.format(datetime(\""+end_time+"\"), \"dd MM yyyy\"), end_time:apoc.temporal.format(datetime(\""+end_time+"\"), \"HH:mm:ss\"),duration:  duration.inSeconds(datetime('"+ start_time +"') ,datetime('"+ end_time +"')).seconds}
+            
             i =i+1
