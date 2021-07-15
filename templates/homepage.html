@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Visualizer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap file  -->
+  <link rel="stylesheet" href="{{url_for('static',filename="css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="css/loginform.css")}}">
+    <script src="{{url_for('static',filename="js/jquery.js")}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="{{url_for('static',filename="js/bootstrap.min.js")}}"></script>
+  <script src="{{url_for('static',filename="js/loginform.js")}}"></script>
+  <!-- bootstrap files ended -->
+<!--   <style type="text/css">
+  	body{ margin: 0; padding: 0; overflow-x: hidden; }
+  </style> -->
+
+</head>
+    <body style=" background-image:url{{url_for ('static', filename='images/2.jpg')}}">
+
+
+    <div class="text-center" style="font-color:white;background-color: rgba(0,0,0,0.9); padding: 15px;">
+     <span style="color: white; font-size: 30px;">Visualizer</span>
+</div>
+
+
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+
+             --><p id="profile-name" class="profile-name-card">Welcome to Neo4j Graph Database</p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required autofocus>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+<!--                <div id="remember" class="checkbox">-->
+<!--                    <label>-->
+<!--                        <input type="checkbox" value="remember-me"> Remember me-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="window.location.href = '/visualizer'">Sign in</button>-->
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" id="signIn">Sign in</button>
+            </form><!-- /form -->
+            <!-- <a href="#" class="forgot-password">
+                Forgot the password?
+            </a> -->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+</body>
+<script>
+
+    $("#signIn").click(function() {
+        var username = $("#inputEmail").val();
+        var password = $("#inputPassword").val();
+        if ((username == "admin") && (password == "admin")) {
+            window.location.href = '/upload';      
+        } else {
+              alert("Invalid Login!!!");
+        }
+    });
+
+</script>
+
+</html>
+
