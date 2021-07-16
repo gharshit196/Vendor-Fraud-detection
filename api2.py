@@ -5,8 +5,8 @@ import neo4j
 import pandas as pd
 from py2neo import cypher
 
-uri = "bolt://34.227.113.27:7687"
-password = "spray-tablets-increment"
+uri = "bolt://44.195.67.117:7687"
+password = "replenishment-particle-subprograms"
 user = "neo4j"
 
             # connecting to server
@@ -15,7 +15,7 @@ graphDB_driver = GraphDatabase.driver(uri, auth=(user, password))
 session = graphDB_driver.session()
             #session.run('create(:car {name: $vehicle})',vehicle="mercedes")
 
-with open('Fraud.csv', mode='r') as file:
+with open("Fraud.csv", mode='r') as file:
     #fieldnames = ['supplier_name', 'supplier_contact', 'supplier_tag', 'supplier_no', 'relation', 'customer_no', 'customer_code', 'customer_tag']
     reader = csv.DictReader(file)
 
