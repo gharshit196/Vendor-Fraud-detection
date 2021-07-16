@@ -52,16 +52,13 @@
     <div class="file-upload">
         <input class="file-upload__input" type="file" name="myFile[]" id = "myFile" multiple>
         <button class="file-upload__button" type="button">Choose File(s)</button>
+        <span class="file-upload__label">No file(s) selected</span>
         <!-- <form id="fileUploadForm" method='post' enctype='multipart/form-data' action='/uploader'>  
             <input type="file" name="file"  id="fileSelect">  
                 <button type="submit" id="btnSubmit">Upload</button>  
             </form> -->
-        <span class="file-upload__label">No file(s) selected</span>
+        <button class="submit" type="submit">Upload</button>
     </div>
-        <!-- <form id="fileUploadForm" method='post' enctype='multipart/form-data' action='/uploader'>  
-            <input type="file" name="file"  id="fileSelect">  
-                <button type="submit" id="btnSubmit">Upload</button>  
-            </form>   -->
     <script>
         Array.prototype.forEach.call(
   document.querySelectorAll(".file-upload__button"),
@@ -92,5 +89,6 @@
     });
   }
 );
+    
     </script>
 </body>  
