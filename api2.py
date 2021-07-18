@@ -6,8 +6,8 @@ import pandas as pd
 from py2neo import cypher
 from py2neo.data import Relationship
 
-uri = "bolt://44.195.67.117:7687"
-password = "replenishment-particle-subprograms"
+uri = "bolt://3.233.241.33:7687"
+password = "knees-gear-wreck"
 user = "neo4j"
 
             # connecting to server
