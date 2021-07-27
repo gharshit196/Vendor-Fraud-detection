@@ -3,8 +3,17 @@
     <title> Upload File to view the Graph </title>
     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+
+    <!-- bootstrap file  -->
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/dcode.css">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename="css/bootstrap.min.css")}}> -->
+    <link rel="stylesheet" href="{{url_for('static',filename="css/loginform.css")}}">
+    <script src="{{url_for('static',filename="js/jquery.js")}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="{{url_for('static',filename="js/bootstrap.min.js")}}"></script>
+    <script src="{{url_for('static',filename="js/loginform.js")}}"></script>
+    <!-- bootstrap files ended -->
     <style>
         .file-upload {
             display: inline-flex;
@@ -17,6 +26,21 @@
           }
                     
           .file-upload__button {
+            -webkit-appearance: none;
+            background: #009879;
+            border: 2px solid #00745d;
+            border-radius: 4px;
+            outline: none;
+            padding: 0.5em 0.8em;
+            margin-right: 15px;
+            color: #ffffff;
+            font-size: 1em;
+            font-family: "Quicksand", sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .file-submit__button {
             -webkit-appearance: none;
             background: #009879;
             border: 2px solid #00745d;
@@ -44,21 +68,47 @@
             font-family: "Quicksand", sans-serif;
           }
           
+
+          .file-upload__center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left:30%;
+            -ms-transform: translateY(-50%, -30%);
+             transform: translateY(-50%, -30%);
+          }
+
+          .file-submit__center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left:60%;
+            -ms-transform: translateY(-50%, -60%);
+             transform: translateY(-50%, -60%);
+          }
+          
     </style>
 </head>
 
 <body>  
-    <h1> Upload File to view the Graph </h1>
+   <div class="text-center" style="font-color:white;background-color: rgba(0,0,0,0.9); padding: 15px;">
+    <span style="color: white; font-size: 30px;">Upload File to view the Graph</span>
+   </div>
+
     <div class="file-upload">
+      <div class="file-upload__center">
         <input class="file-upload__input" type="file" name="myFile[]" id = "myFile" multiple>
         <button class="file-upload__button" type="button">Choose File(s)</button>
         <span class="file-upload__label">No file(s) selected</span>
-        <!-- <form id="fileUploadForm" method='post' enctype='multipart/form-data' action='/uploader'>  
-            <input type="file" name="file"  id="fileSelect">  
-                <button type="submit" id="btnSubmit">Upload</button>  
-            </form> -->
-        <button class="submit" type="submit">Upload</button>
+        
+      </div>  
     </div>
+    <div class="file-submit">
+      <div class="file-submit__center">
+        <button class="file-submit__button" type=button onclick="location.href='visualizer'">Submit</button> 
+      </div>
+    </div>
+
     <script>
         Array.prototype.forEach.call(
   document.querySelectorAll(".file-upload__button"),
@@ -89,6 +139,6 @@
     });
   }
 );
-    
+      
     </script>
 </body>  

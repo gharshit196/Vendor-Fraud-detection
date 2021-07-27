@@ -41,10 +41,6 @@ def index():
 #     neo_4j_demo.backend(file_path)
 #     return 0
 
-# @app.route('/welcome')
-# def welcome():
-#     return render_template("welcome.html")
-
 # @app.route('/login', methods=['GET', 'POST'])
 # def login():
 #     error=None
@@ -73,24 +69,24 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/uploader', methods=['GET', 'POST'])  
-def upload_file():  
-    if 'file' not in request.files:  
-        flash('No file part')
-        return redirect(request.url)  
-    file = request.files['file']  
-    if file.filename == '': 
-        flash('No selected file') 
-        return redirect(request.url)  
-    if file:  
-        filename = secure_filename(file.filename)
-        path = file.save(os.path.join(dirname, filename))
-        return redirect('/visualizer') 
-        # data = pd.read_csv(file)
+# @app.route('/uploader', methods=['GET', 'POST'])  
+# def upload_file():  
+#     if 'file' not in request.files:  
+#         flash('No file part')
+#         return redirect(request.url)  
+#     file = request.files['file']  
+#     if file.filename == '': 
+#         flash('No selected file') 
+#         return redirect(request.url)  
+#     if file:  
+#         filename = secure_filename(file.filename)
+#         path = file.save(os.path.join(dirname, filename))
+#         return redirect('/visualizer') 
+#         # data = pd.read_csv(file)
         # return data.shape
         #return file.filename
         #return redirect('/uploads/'+file.filename)  
-    return ''
+    # return ''
 
 @app.route('/visualizer')
 def visualizer():
