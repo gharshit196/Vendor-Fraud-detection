@@ -27,7 +27,7 @@
                     
           .file-upload__button {
             -webkit-appearance: none;
-            background: #009879;
+            background: hsl(168, 100%, 30%);
             border: 2px solid #00745d;
             border-radius: 4px;
             outline: none;
@@ -86,18 +86,26 @@
             -ms-transform: translateY(-50%, -60%);
              transform: translateY(-50%, -60%);
           }
+
+          .header {
+            text-align: center;
+          }
+
+          .title {
+            display: inline-block;
+          }
           
     </style>
 </head>
 
 <body>  
-   <div class="text-center" style="font-color:white;background-color: rgba(0,0,0,0.9); padding: 15px;">
-    <span style="color: white; font-size: 30px;">Upload File to view the Graph</span>
+   <div class="header" style="font-color:white;background-color: rgba(0,0,0,0.9); padding: 15px;">
+    <span class="title" style="color: white; font-size: 30px;">Upload File to view the Graph</span>
    </div>
 
     <div class="file-upload">
       <div class="file-upload__center">
-        <input class="file-upload__input" type="file" name="myFile[]" id = "myFile" multiple>
+        <input class="file-upload__input" type="file" name="myFile" id = "myFile">
         <button class="file-upload__button" type="button">Choose File(s)</button>
         <span class="file-upload__label">No file(s) selected</span>
         
@@ -105,7 +113,7 @@
     </div>
     <div class="file-submit">
       <div class="file-submit__center">
-        <button class="file-submit__button" type=button onclick="location.href='visualizer'">Submit</button> 
+        <button class="file-submit__button" type=button id='submit'>Submit</button> 
       </div>
     </div>
 
@@ -139,6 +147,18 @@
     });
   }
 );
+
+  $("#submit").click(function() {
+        var myFile = $("#myFile").val();
+        // console.log(myFile);
+        if (myFile != null && myFile != undefined && myFile.length != 0) {
+            //console.log(myFile.length);
+            //console.log(myFile);
+            window.location.href = '/visualizer'; 
+        } else {
+              alert("No chosen file");
+        }
+    });
       
     </script>
 </body>  
